@@ -15,3 +15,4 @@ gem "jquery-rails"
 
 # To use debugger
 # gem 'debugger'
+gem 'rails-assets-mozilla--pdf.js', source: 'https://rails-assets.org'
