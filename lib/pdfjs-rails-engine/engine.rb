@@ -1,3 +1,5 @@
+require 'rails-assets-mozilla--pdf.js'
+
 module PdfjsRailsEngine
   class Engine < ::Rails::Engine
     isolate_namespace PdfjsRailsEngine
@@ -5,12 +7,10 @@ module PdfjsRailsEngine
     initializer 'pdfjs-rails-engine.assets.precompile', group: :all do |app|
       app.config.assets.precompile += %w(
         pdf/viewer.css
-        pdf/web/compatibility.js
-        pdf/web/l10n.js
+        pdf/pdf_viewer.css
+        pdf/annotation_layer_builder.css
+        pdf/text_layer_builder.css
         pdf/pdf.js
-        pdf/pdf.worker.js
-        pdf/web/debugger.js
-        pdf/web/viewer.js
       )
     end
 
