@@ -4,18 +4,16 @@ module PdfjsRailsEngine
 
     initializer 'pdfjs-rails-engine.assets.precompile', group: :all do |app|
       app.config.assets.precompile += %w(
-        pdf/viewer.css
-        pdf/web/compatibility.js
-        pdf/web/l10n.js
-        pdf/pdf.js
-        pdf/pdf.worker.js
-        pdf/web/debugger.js
-        pdf/web/viewer.js
+        pdf.js-gh-pages/web/viewer.css
+        pdf.js-gh-pages/web/l10n.js
+        pdf.js-gh-pages/web/viewer.js
+        pdf.js-gh-pages/build/pdf.js
+        pdf.js-gh-pages/build/pdf.worker.js
       )
     end
 
-    initializer 'pdfjs-rails-engine.load_static_assets' do |app|
-      app.middleware.use ::ActionDispatch::Static, "#{root}/vendor"
+    initializer 'pdfjs-rails-engine.assets.paths' do |app|
+      app.config.assets.paths << File.expand_path("#{root}/lib")
     end
   end
 end

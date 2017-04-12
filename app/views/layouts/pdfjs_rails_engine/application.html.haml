@@ -1,0 +1,19 @@
+!!!
+%html{:dir => "ltr", :mozdisallowselectionprint => "", :moznomarginboxes => ""}
+  %head
+    %meta{:charset => "utf-8"}/
+    %meta{:content => "width=device-width, initial-scale=1, maximum-scale=1", :name => "viewport"}/
+    %meta{:content => "notranslate", :name => "google"}/
+    %meta{:content => "IE=edge", "http-equiv" => "X-UA-Compatible"}/
+    %title PDF.js viewer
+
+    = stylesheet_link_tag(asset_path('pdf.js-gh-pages/web/viewer.css'))
+
+    = javascript_include_tag(asset_path('pdf.js-gh-pages/web/l10n.js'))
+    = javascript_include_tag(asset_path('pdf.js-gh-pages/build/pdf.js'))
+    = javascript_include_tag(asset_path('pdf.js-gh-pages/web/viewer.js'))
+
+    :javascript
+      PDFJS.workerSrc = '#{asset_path('pdf.js-gh-pages/build/pdf.worker.js')}';
+
+  = yield
