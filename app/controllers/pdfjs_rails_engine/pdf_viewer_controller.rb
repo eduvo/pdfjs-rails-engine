@@ -1,7 +1,7 @@
 module PdfjsRailsEngine
   class PdfViewerController < ApplicationController
     layout 'pdfjs_rails_engine/application'
-    before_filter :additional_headers
+    before_action :additional_headers
 
     def index
     end
